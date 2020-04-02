@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const ShowLaps = props => {
   return (
@@ -21,16 +21,33 @@ const ShowTime = props => {
 };
 
 const Button = props => {
-  return <button>{props.text}</button>;
+  return <button onClick={props.onClick}>{props.text}</button>;
 };
 
 function App() {
+  const [numLaps, setNumLaps] = useState(15);
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    setInterval(() => {
+      console.log(`chamou`);
+    }, 1000);
+  }, []);
+
+  const increment = () => {
+    setNumLaps(numLaps + 1);
+  };
+
+  const decrement = () => {
+    setNumLaps(numLaps - 1);
+  };
+
   return (
-    <div className='App'>
-      <ShowLaps laps='15' />
-      <Button text='+' />
-      <Button text='-' />
-      <ShowTime time='01:30' />
+    <div>
+      <ShowLaps laps={numLaps} />
+      <Button text='+' onClick={increment} />
+      <Button text='-' onClick={decrement} />
+      <ShowTime time={time} />
       <Button text='Start' />
       <Button text='Restart' />
     </div>
