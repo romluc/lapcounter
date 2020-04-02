@@ -8,7 +8,8 @@ const ShowTime = props => {
   const secondsStr = seconds < 10 ? `0${seconds}` : seconds;
   return (
     <p>
-      {`${minutesStr}:${secondsStr}`} <br />
+      <span className='time'>{`${minutesStr}:${secondsStr}`} </span>
+      <br />
       Average time per lap
     </p>
   );
