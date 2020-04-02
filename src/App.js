@@ -1,33 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
-const ShowLaps = props => {
-  const lapsStr = props.laps < 10 ? `0${props.laps}` : props.laps;
-  return (
-    <p>
-      {lapsStr}
-      <br />
-      laps
-    </p>
-  );
-};
-
-const ShowTime = props => {
-  const time = props.time;
-  const minutes = Math.round(time / 60);
-  const seconds = time % 60;
-  const minutesStr = minutes < 10 ? `0${minutes}` : minutes;
-  const secondsStr = seconds < 10 ? `0${seconds}` : seconds;
-  return (
-    <p>
-      {`${minutesStr}:${secondsStr}`} <br />
-      Average time per lap
-    </p>
-  );
-};
-
-const Button = props => {
-  return <button onClick={props.onClick}>{props.text}</button>;
-};
+import ShowLaps from './ShowLaps';
+import ShowTime from './ShowTime';
+import Button from './Button';
 
 function App() {
   const [numLaps, setNumLaps] = useState(0);
